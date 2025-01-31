@@ -16,11 +16,18 @@ main :: proc() {
 
 print_memory_usage :: proc(tracking_allocator: ^mem.Tracking_Allocator, stats := false) {
 	if stats {
-		fmt.eprintfln("Total Allocated        : ", tracking_allocator.total_memory_allocated)
-		fmt.eprintfln("Total Freed            : ", tracking_allocator.total_memory_freed)
-		fmt.eprintfln("Total Allocation Count : ", tracking_allocator.total_free_count)
-		fmt.eprintfln("Total Free Count       : ", tracking_allocator.total_free_count)
-		fmt.eprintfln("Current Allocations    : ", tracking_allocator.current_memory_allocated)
+		fmt.eprintln()
+		fmt.eprintfln(
+			"Total Allocated        : %d bytes",
+			tracking_allocator.total_memory_allocated,
+		)
+		fmt.eprintfln("Total Freed            : %d bytes", tracking_allocator.total_memory_freed)
+		fmt.eprintfln("Total Allocation Count : %d bytes", tracking_allocator.total_free_count)
+		fmt.eprintfln("Total Free Count       : %d bytes", tracking_allocator.total_free_count)
+		fmt.eprintfln(
+			"Current Allocations    : %d bytes",
+			tracking_allocator.current_memory_allocated,
+		)
 		fmt.eprintln()
 	}
 
